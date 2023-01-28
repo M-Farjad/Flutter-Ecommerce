@@ -1,6 +1,9 @@
 import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/screens/sign_in/sign_in.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'splash_content.dart';
+import '../../../components/default_button.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -10,7 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  // List<Map<String,String>>
+  int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Tokoto, Let's shop!",
@@ -36,6 +39,12 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                onPageChanged: (value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
+                itemCount: splashData.length,
                 itemBuilder: (context, index) => SplashContent(
                   image: splashData[index]["image"]!,
                   text: splashData[index]["text"]!,
@@ -44,46 +53,45 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: Container(),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                          splashData.length, (index) => BuildDot(index: index)),
+                    ),
+                    Spacer(flex: 3),
+                    DefaultButton(
+                        press: (() {
+                          Navigator.pushNamed(context, SignInScreen.routeName);
+                        }),
+                        text: "Continue",
+                        raisedButtonStyle: raisedButtonStyle),
+                    Spacer(),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-class SplashContent extends StatelessWidget {
-  const SplashContent({Key? key, required this.text, required this.image})
-      : super(key: key);
-  final String text, image;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Spacer(),
-        Text(
-          'Youngstr',
-          style: TextStyle(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: getProportionateScreenWidth(40)),
-        ),
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(13),
-          ),
-        ),
-        const Spacer(
-          flex: 2,
-        ),
-        Image.asset(
-          image,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
-        ),
-      ],
+  AnimatedContainer BuildDot({int? index}) {
+    return AnimatedContainer(
+      duration: kThemeAnimationDuration,
+      margin: const EdgeInsets.only(right: 5),
+      width: currentPage == index ? 20 : 6,
+      height: 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
+      ),
     );
   }
 }

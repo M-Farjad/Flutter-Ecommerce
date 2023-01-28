@@ -1,6 +1,10 @@
 import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/routes.dart';
 import 'package:ecommerce/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,17 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor),
-        ),
-        // primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const SplashScreen(),
+      theme: theme(),
+      // home: const SplashScreen(),
+      initialRoute: SplashScreen.routeName, //to remember the name
+      routes: routes,
     );
   }
   // salman pagal
