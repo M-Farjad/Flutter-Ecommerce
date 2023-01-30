@@ -73,13 +73,14 @@ class _SignUpFormState extends State<SignUpForm> {
         if (password == value && errors.contains(kMatchPassError)) {
           setState(() {
             //Only Runs when both of the passwords are same
-            cnfrmPassword = value;
+            // cnfrmPassword = value;
             errors.remove(kMatchPassError);
             errors.remove(kCnfrmPassNullError);
           });
-        } else {
-          cnfrmPassword = value;
         }
+        // else {
+        //   cnfrmPassword = value;
+        // }
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -93,7 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      // keyboardType: TextInputType.visiblePassword,
+      keyboardType: TextInputType.visiblePassword,
       obscureText: true,
       decoration: const InputDecoration(
         label: Text("Confirm Password"),
@@ -130,7 +131,7 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      // keyboardType: TextInputType.visiblePassword,
+      keyboardType: TextInputType.visiblePassword,
       obscureText: true,
       decoration: const InputDecoration(
         label: Text("Password"),
