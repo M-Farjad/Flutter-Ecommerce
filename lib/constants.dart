@@ -31,3 +31,20 @@ const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
 const String kCnfrmPassNullError = "Please Confirm the Password";
+const String kNameNullError = "Please Enter your Name";
+const String kPhoneNumberNullError = "Please Enter your Phone Number";
+const String kAddressNullError = "Please Enter your Address";
+
+final otpInputDecoration = InputDecoration(
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  enabledBorder: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  border: outlineInputBorder(),
+);
+
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(color: kTextColor));
+}
