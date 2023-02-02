@@ -1,7 +1,9 @@
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import '../../home/home_screen.dart';
 
 class OTPform extends StatefulWidget {
   const OTPform({super.key});
@@ -108,7 +110,9 @@ class _OTPformState extends State<OTPform> {
         DefaultButton(
             raisedButtonStyle: raisedButtonStyle,
             text: "Continue",
-            press: () {}),
+            press: () {
+              Navigator.pushNamed(context, HomeScreen.routeName);
+            }),
       ],
     );
   }

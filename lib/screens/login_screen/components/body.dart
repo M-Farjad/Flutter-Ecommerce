@@ -1,4 +1,5 @@
 import 'package:ecommerce/components/default_button.dart';
+import 'package:ecommerce/screens/home/home_screen.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,8 @@ class _BodyState extends State<Body> {
             child: DefaultButton(
                 raisedButtonStyle: raisedButtonStyle,
                 text: 'Back To Home',
-                press: () {}),
+                press: () =>
+                    Navigator.pushNamed(context, HomeScreen.routeName)),
           ),
           Spacer(),
         ],
