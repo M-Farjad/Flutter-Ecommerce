@@ -1,9 +1,14 @@
+import 'package:ecommerce/constants.dart';
+import 'package:ecommerce/models/product.dart';
 import 'package:ecommerce/screens/home/components/section_title.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../../components/product_card.dart';
 import 'categories.dart';
 import 'discount_banner.dart';
 import 'homeHeader.dart';
+import 'popular_products.dart';
 import 'special_offers.dart';
 
 class Body extends StatefulWidget {
@@ -25,9 +30,9 @@ class _BodyState extends State<Body> {
             discountBanner(),
             SizedBox(height: getProportionateScreenHeight(20)),
             Categories(),
-            SizedBox(height: getProportionateScreenHeight(20)),
             SpecialOffers(),
-            SectionTitle(text: 'Popular Offer', press: () {}),
+            SizedBox(height: getProportionateScreenHeight(20)),
+            PopularProducts(),
           ],
         ),
       ),

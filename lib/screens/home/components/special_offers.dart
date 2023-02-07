@@ -12,8 +12,8 @@ class SpecialOffers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SectionTitle(press: () {}, text: 'Special for you'),
         SizedBox(height: getProportionateScreenHeight(20)),
+        SectionTitle(press: () {}, text: 'Special for you'),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
