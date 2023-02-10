@@ -14,7 +14,9 @@ class RoundIconBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: icnData == Icons.arrow_back_ios
+          ? EdgeInsets.only(top: 20)
+          : EdgeInsets.all(0),
       width: getProportionateScreenWidth(40),
       height: getProportionateScreenWidth(40),
       decoration: BoxDecoration(
