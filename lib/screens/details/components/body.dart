@@ -1,5 +1,6 @@
 import 'package:ecommerce/components/default_button.dart';
 import 'package:ecommerce/models/product.dart';
+import 'package:ecommerce/screens/cart/cart_screen.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'color_dots.dart';
@@ -39,7 +40,8 @@ class Body extends StatelessWidget {
                                 top: getProportionateScreenWidth(15),
                                 bottom: getProportionateScreenWidth(40)),
                             child: DefaultButton(
-                              press: () {},
+                              press: () => Navigator.pushNamed(
+                                  context, CartScreen.routeName),
                               raisedButtonStyle: raisedButtonStyle,
                               text: "Add to Cart",
                             ),
