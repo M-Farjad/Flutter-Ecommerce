@@ -1,3 +1,5 @@
+import 'package:ecommerce/components/custom_nav_bar.dart';
+import 'package:ecommerce/enums.dart';
 import 'package:ecommerce/screens/Home/components/body.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
         title: Text("Home Screen"),
       ),
       body: Body(),
+      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
     );
   }
 }
